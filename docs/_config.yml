@@ -1,0 +1,32 @@
+---
+version: 4.0.0
+name: Blog
+description: Blog
+repository: https://github.com/YTKme/Blog
+timezone: America/Los_Angeles
+
+collections:
+  docs:
+    permalink: /:collection/:path/
+    output: true
+
+defaults:
+  - scope:
+      path: _docs
+      type: docs
+    values:
+      layout: docs
+
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-seo-tag
+
+sass:
+  style: compressed
+  sass_dir: ./_sass
+
+strict_front_matter: true
+
+exclude:
+  - .gitignore
