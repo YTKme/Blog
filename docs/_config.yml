@@ -1,5 +1,5 @@
 ---
-version: 4.0.0
+version: 4.1.0
 name: Blog
 description: Blog
 repository: https://github.com/YTKme/Blog
@@ -7,7 +7,10 @@ timezone: America/Los_Angeles
 
 collections:
   docs:
-    permalink: /:collection/:path/
+    permalink: "/:collection/:path/"
+    output: true
+  posts:
+    permalink: "/posts/:year/:month/:day/:title/"
     output: true
 
 defaults:
@@ -16,6 +19,11 @@ defaults:
       type: docs
     values:
       layout: docs
+  - scope:
+      path: _posts
+      type: posts
+    values:
+      layout: posts
 
 plugins:
   - jekyll-feed
@@ -24,7 +32,6 @@ plugins:
 
 sass:
   style: compressed
-  sass_dir: ./_sass
 
 strict_front_matter: true
 
