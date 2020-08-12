@@ -1,6 +1,16 @@
 - title: General
   subcategories:
-    - title: G
+    - title: Overview
       docs:
         - title: Overview
-          link: general/G/overview
+          link: general/overview
+- title: Science
+  link: science
+- title: Technology
+  link: technology
+- title: Engineering
+  link: engineering
+- title: Art
+  link: art
+- title: Mathematic
+  link: mathematic
