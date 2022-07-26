@@ -306,3 +306,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#################
+# Miscellaneous #
+#################
+
+Gemfile.lock
