@@ -1,9 +1,7 @@
 name: Build and Deploy Jekyll Site to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
+  push
 
 jobs:
   jekyll-github-pages:
@@ -19,8 +17,20 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gems-
 
-      # Standard
-      - uses: helaili/jekyll-action@v2
+      # Development
+      - name: Build and Deploy Development Site
+        if: startsWith(github.ref, 'refs/heads/develop')
+        uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           jekyll_src: 'docs'
+          target_branch: 'gh-pages-dev'
+
+      # Production
+      - name: Build and Deploy Production Site
+        if: startsWith(github.ref, 'refs/heads/main')
+        uses: helaili/jekyll-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          jekyll_src: 'docs'
+          target_branch: 'gh-pages'
