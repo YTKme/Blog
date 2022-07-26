@@ -1,45 +1,51 @@
         <!-- Navigation -->
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" aria-label="Main Navigation">
             <div class="container">
                 <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}">YK Blog</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle Main Navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <!--
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ site.url }}{{ site.baseurl }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        -->
+                <div id="navbarMain" class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" aria-labelledby="navbarMainLabel">
+                    <div class="offcanvas-header">
+                        <h5 id="navbarMainLabel" class="offcanvas-title">Main Navigation</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav flex-grow-1 pe-3">
+                            <!--
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ site.url }}{{ site.baseurl }}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            -->
 
-                    {% for category in site.data.docs %}
-                    {% if category.subcategories %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {{ category.title }}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                {% for subcategory in category.subcategories %}
-                                {% unless forloop.first %}
-                                    <div class="dropdown-divider"></div>
-                                {% endunless %}
-                                    <h6 class="dropdown-header">{{ subcategory.title }}</h6>
-                                    {% for doc in subcategory.docs %}
-                                    {% assign u = doc.link | prepend: '/docs/' | append: '/' %}
-                                    <a class="dropdown-item" href="{{ site.url }}{{ site.baseurl }}{{ u }}">{{ doc.title }}</a>
+                        {% for category in site.data.docs %}
+                        {% if category.subcategories %}
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ category.title }}
+                                </a>
+                                <ul class="dropdown-menu">
+                                    {% for subcategory in category.subcategories %}
+                                    {% unless forloop.first %}
+                                        <li><hr class="dropdown-divider"></li>
+                                    {% endunless %}
+                                        <li><h6 class="dropdown-header">{{ subcategory.title }}</h6></li>
+                                        {% for doc in subcategory.docs %}
+                                        {% assign u = doc.link | prepend: '/docs/' | append: '/' %}
+                                        <li><a class="dropdown-item" href="{{ site.url }}{{ site.baseurl }}{{ u }}">{{ doc.title }}</a></li>
+                                        {% endfor %}
                                     {% endfor %}
-                                {% endfor %}
-                            </div>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            {% assign u = category.link | prepend: '/docs/' | append: '/' %}
-                            <a class="nav-link" href="{{ site.url }}{{ site.baseurl }}{{ u }}">{{ category.title }}</a>
-                        </li>
-                    {% endif %}
-                    {% endfor %}
-                    </ul>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                {% assign u = category.link | prepend: '/docs/' | append: '/' %}
+                                <a class="nav-link" href="{{ site.url }}{{ site.baseurl }}{{ u }}">{{ category.title }}</a>
+                            </li>
+                        {% endif %}
+                        {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </nav>
