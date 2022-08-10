@@ -7,7 +7,13 @@
 - title: Science
   link: science
 - title: Technology
-  link: technology
+  subcategories:
+    - title: Software
+      docs:
+        - title: Git
+          link: technology/git/git
+        - title: GitHub
+          link: technology/github/github
 - title: Engineering
   link: engineering
 - title: Art
