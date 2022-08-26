@@ -8,8 +8,8 @@ permalink: /docs/engineering/discord/discord/
 Discord
 
 ## Content
+* [Discord Reference](/docs/engineering/discord/discord-reference/)
 
 ## Reference
 
 ### General
-* [Discord API Reference (Message Formatting)](https://discord.com/developers/docs/reference#message-formatting){:target="_blank"}
