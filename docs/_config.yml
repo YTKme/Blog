@@ -41,3 +41,4 @@ strict_front_matter: true
 
 exclude:
   - .gitignore
+  - bootstrap

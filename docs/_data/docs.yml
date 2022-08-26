@@ -11,10 +11,15 @@
     - title: Software
       docs:
         - title: Git
-          link: technology/git/git
+          link: technology/git/git/
         - title: GitHub
-          link: technology/github/github
+          link: technology/github/github/
 - title: Engineering
+  subcategories:
+    - title: Development
+      docs:
+        - title: Discord
+          link: engineering/discord/discord/
   link: engineering
 - title: Art
   link: art
